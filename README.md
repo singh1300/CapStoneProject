@@ -1,146 +1,104 @@
-# Capstone Project Proposal
+Project Title
 
-# Project Title
-Punjab: The Era of Maharaja Ranjit Singh
+Warehouse Employee Performance and Training Platform
 
-## Overview
-### What is your app?
-An interactive educational app that provides an immersive experience into the history of Punjab during the reign of Maharaja Ranjit Singh. Users can explore various aspects of the era, including key figures, cultural contributions, and significant events through detailed descriptions, images, and interactive features.
+Overview
 
-## Problem
-### Why is your app needed?
-There is a lack of accessible and engaging resources for learning about the rich history of Punjab, particularly the period of Maharaja Ranjit Singh. Many educational materials are either too dense or fail to capture the interest of a younger audience. This app addresses the need for a comprehensive yet engaging tool for students, historians, and anyone interested in this pivotal era of Punjab’s history.
+What is your app?
 
-## User Profile
-### Who will use your app?
+The Warehouse Employee Performance and Training Platform is a web application designed to help warehouse employees track their performance, view their productivity reports, and access training modules to improve their skills. The app includes features such as performance dashboards, order details, training videos, and error tracking.
 
-#### Students: 
-To supplement their history curriculum with interactive content.
+Problem
 
-#### Historians: 
-For a consolidated resource of information on Maharaja Ranjit Singh’s era.
+Warehouse employees often struggle to find items in bins, leading to repeated scanning of wrong items, which impacts productivity and performance. This app aims to address these issues by providing employees with a tool to monitor their performance, identify mistakes, and receive training to improve accuracy and efficiency.
 
-#### General Public: 
-Anyone with an interest in learning more about Punjab’s history in an engaging manner.
+User Profile
 
-### Special Considerations:
+	•	Primary Users: Warehouse employees
+	•	Secondary Users: Warehouse managers
+	•	Usage: Employees will use the app to log in, check their performance metrics, view order details, and access training modules. Managers may use the app to monitor employee performance and identify areas for improvement.
+	•	Special Considerations: The app should be user-friendly, accessible on various devices, and provide real-time updates on performance metrics.
 
-The app must be intuitive and easy to navigate.
-Content should be accessible to users of varying ages and educational backgrounds.
-It should include multimedia elements (images, videos) to enhance learning.
+Features
 
-### Features
-#### Interactive Timeline
-Users can explore major events in the timeline of Maharaja Ranjit Singh’s reign.
-#### Key Figures
-Profiles of significant individuals from the era, including images and detailed descriptions.
-### Cultural Insights
-Sections on art, literature, architecture, and traditions of the time.
-### Daily Life
-Descriptions and images of the daily lives of common people during this period.
+	1.	Login Page: Employees can log in to access their personalized dashboard.
+	2.	Dashboard: Displays daily and weekly work reports, including items picked, mistakes made, and performance graphs.
+	3.	Training Page: Provides access to training modules, including videos and text-based content.
+	4.	Order Detail Page: Displays detailed information about current and past orders, including item lists and bin locations.
+	5.	Error Tracking: Logs mistakes and provides recommended training modules to address specific errors.
+	6.	Performance Graphs: Visual representation of employee performance over time.
+	7.	Logout: Securely logs out the employee from the application.
 
-### Implementation
-### Tech Stack
+Implementation
 
-#### Frontend: 
-React Native (for cross-platform mobile app development)
-#### Backend: 
-Node.js with Express (for server-side logic and API integration)
-#### Database: 
-MySQL (for storing user data and content)
+Tech Stack
 
-#### Libraries:
-Axios (for API calls)
-Redux (for state management)
-Sequelize (for MySQL ORM)
+	•	Frontend: React, HTML, CSS
+	•	Backend: Node.js, Express
+	•	Database: MySQL
+	•	Libraries: Axios (for API calls), Chart.js (for performance graphs), JWT (for authentication)
+	•	Tools: Vite (for frontend development), Figma (for mockups)
 
+APIs
 
-### APIs
+	•	Internal APIs:
+	•	User Authentication (login, logout)
+	•	Performance Data (daily, weekly reports)
+	•	Training Modules (fetch training content)
+	•	Order Details (fetch order information)
+	•	External APIs: None planned at this stage
 
-#### Historical Data API: 
-For accessing a database of historical facts and images.
-#### Image Library API: 
-To integrate high-quality historical images.
+Sitemap
 
-### Sitemap
-#### Home Page
-Overview of the app and featured content.
-#### Timeline
-Interactive timeline of events.
-#### Key Figures
-List and profiles of notable individuals.
-#### Cultural Insights
-Detailed sections on art, literature, and architecture.
-#### Daily Life
-Descriptions and images of common people's lives.
+	•	Login Page: User authentication
+	•	Dashboard: Overview of performance metrics
+	•	Training Page: Access to training modules
+	•	Order Detail Page: Detailed view of order information
 
-#### Mockups
+Mockups
 
-Use Figma to create detailed mockups of each screen.
-Include hand-drawn sketches for initial design ideas.
+	•	Login Page: Simple form with email and password fields, login button
+	•	Dashboard: Performance cards, charts for daily/weekly performance and picking speed
+	•	Training Page: List of training modules with videos
+	•	Order Detail Page: Table of order items with bin locations
 
-### Data
+Data
 
-#### Entities: 
-Events, People, Cultural Aspects, Daily Life Descriptions, Quiz Questions.
-#### Relationships:
-Events related to People (one-to-many).
-People related to Cultural Aspects (many-to-many).
-Daily Life Descriptions related to Events (one-to-many).
+	•	User Data: UserID, email, password, role
+	•	Performance Data: UserID, date, itemsPicked, mistakesMade, mistakeDetails
+	•	Training Data: ModuleID, title, description, videoURL
+	•	Order Data: OrderID, items (ItemID, quantity, binLocation)
 
-### Endpoints
+Endpoints
 
-#### GET /events
-Retrieve a list of historical events.
-#### GET /people
-Retrieve profiles of key figures.
-#### GET /culture
-Retrieve cultural insights.
-#### GET /user
-Retrieve user profile information.
+	•	POST /api/login: Authenticate user
+	•	Request: { email: string, password: string }
+	•	Response: { token: string }
+	•	GET /api/dashboard: Fetch performance data
+	•	Request: Authorization: Bearer token
+	•	Response: { daily: [], weekly: [] }
+	•	GET /api/training: Fetch training modules
+	•	Request: Authorization: Bearer token
+	•	Response: { modules: [] }
+	•	GET /api/orders: Fetch order details
+	•	Request: Authorization: Bearer token
+	•	Response: { orders: [] }
 
-#### Auth
+Auth
 
-Implement JWT for user authentication.
-Users can create accounts and log in to save their progress.
-#### Roadmap
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation.
+	•	Authentication: JWT-based authentication for secure login and access control
+	•	Authorization: Role-based access control (e.g., employee, manager)
 
-### Week 1:
+Roadmap
 
-#### Day 1-2: 
-Research and gather content; design mockups.
-Collect historical information, images, and resources.
-Create hand-drawn sketches and digital mockups using Figma.
-#### Day 3-4: 
-Set up the backend and database.
-Configure Node.js, Express, and MongoDB.
-Develop user authentication with JWT.
-#### Day 5-7: 
-Develop the frontend.
-Build the main pages (Home, Timeline, Key Figures).
-Integrate APIs and connect to the backend.
+	•	Week 1: Project setup, database schema design, basic frontend and backend setup
+	•	Week 2: Implement authentication, develop login and dashboard pages
+	•	Week 3: Develop training and order detail pages, integrate API endpoints
+	•	Week 4: Testing, debugging, deployment, and final adjustments
 
-### Week 2:
+Nice-to-haves
 
-#### Day 8-10: 
-Complete frontend development.
-Finalize pages for Cultural Insights, Daily Life, Quizzes, and User Profile.
-Ensure all interactive elements are functioning.
-
-#### Day 11-12: 
-Testing and debugging.
-Conduct thorough testing to identify and fix bugs.
-Perform user testing to gather feedback and make improvements.
-
-#### Day 13-14: 
-Final revisions and deployment.
-Implement any remaining changes based on feedback.
-Deploy the app to a suitable platform.
-
-### Nice-to-haves
-
-#### Multilingual Support: 
-Include translations in Punjabi and Hindi.
-#### Augmented Reality (AR) Features: 
-Interactive AR experiences of historical sites.
+	•	Notifications: Real-time notifications for new orders or performance updates
+	•	Analytics: Advanced analytics for managers to monitor overall warehouse performance
+	•	Mobile App: A companion mobile app for on-the-go access
+	•	Gamification: Gamify the training process to motivate employees
